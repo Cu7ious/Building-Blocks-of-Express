@@ -1,9 +1,17 @@
 STEPS TO CREATE A NODE.JS PROJECT
 
-1. npm init
-2. npm install express@4
-3. git init
-4. npm shrinkwrap
-5. echo 'node_modules' >> .gitignore
+1.  npm init
+2.  npm install express@4
+3.  git init
+4.  npm shrinkwrap
+5.  echo 'node_modules' >> .gitignore
 
+6.  mkdir bin && touch bin/www //express.js team convention
+
+7.  touch test.js
+8.  npm install supertest --save-dev
+9.  npm install mocha --save-dev
+10. vim package.json >> "tests": "mocha test.js"
+
+11. 
 
