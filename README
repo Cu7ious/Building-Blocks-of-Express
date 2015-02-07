@@ -12,6 +12,6 @@ STEPS TO CREATE A NODE.JS PROJECT
 8.  npm install supertest --save-dev
 9.  npm install mocha --save-dev
 10. vim package.json >> "tests": "mocha test.js"
+11. ./node_modules/mocha/bin/mocha -w app.js test.js // watch
 
-11. 
 

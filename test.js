@@ -1,20 +1,49 @@
 var request = require('supertest');
 var app = require('./app');
 
-describe('Request to the root path', function() {
+describe('Request to the root path:', function() {
 
     it('Returns a 200 status code', function(done) {
-
         request(app)
             .get('/')
-            .expect(200)
-            .end(function(err) {
+            .expect(200, done);
+    });
 
-                if (err) throw err;
+    it('Returns an HTML format', function(done) {
+        request(app)
+            .get('/')
+            .expect('Content-Type', /html/, done);
+    });
 
-                done();
-
-            });
+    it('Returns an index file with Cities', function(done) {
+        request(app)
+            .get('/')
+            .expect(/cities/i, done);
     });
 
 });
+
+describe('Listing cities on /cities:', function() {
+
+    it('Returns a 200 status code', function(done) {
+        request(app)
+            .get('/cities')
+            .expect(200, done);
+    });
+
+    it('Returns JSON format', function(done) {
+        request(app)
+            .get('/cities')
+            .expect('Content-Type', /json/, done);
+    });
+
+    it('Returns initial cities', function(done) {
+        request(app)
+            .get('/cities')
+            .expect(JSON.stringify(['Lotopia', 'Caspiana', 'Indigo']), done);
+
+    });
+});
+
+// describe('', function() {
+// });
