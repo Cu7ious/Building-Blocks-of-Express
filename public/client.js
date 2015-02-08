@@ -3,6 +3,7 @@ $(function(){
   $.get('/cities', appendToList);
 
   $('form').on('submit', function(event) {
+
     event.preventDefault();
 
     var form = $(this);
