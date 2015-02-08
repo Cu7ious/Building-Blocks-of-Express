@@ -15,12 +15,13 @@ client.on("error", function (err) {
     console.log("Error " + err);
 });
 
-client.hset('cities', "Lotopia", "Fantastic city.");
-client.hset('cities', "Caspiana", "The city on Caspian Sea.");
-client.hset('cities', "Indigo", "The city of the fags.");
+// client.hset('cities', "Lotopia", "Fantastic city.");
+// client.hset('cities', "Caspiana", "The city on Caspian Sea.");
+// client.hset('cities', "Indigo", "The city of the fags.");
 
 app.get('/cities', function(req, res) {
     client.hkeys('cities', function(err, names) {
+
         if (err) throw err;
 
         res.json(names);
@@ -30,9 +31,20 @@ app.get('/cities', function(req, res) {
 app.post('/cities', urlencode, function(req, res) {
     var newCity = req.body;
     client.hset('cities', newCity.name, newCity.description, function(err) {
+
         if (err) throw err;
 
         res.json(newCity.name);
+    });
+});
+
+app.delete('/cities/:name', function(req, res) {
+    client.hdel('cities', req.params.name, function(err) {
+
+        if (err) throw err;
+
+        res.sendStatus(204);
+
     });
 });
 
