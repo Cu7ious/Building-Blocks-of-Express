@@ -54,5 +54,19 @@ app.delete('/cities/:name', function(req, res) {
     });
 });
 
+app.get('/cities/:name', function(req, res) {
+    client.hget('cities', req.params.name, function(err, description) {
+
+        if (err) throw err;
+
+        res.render('show.ejs', {
+            city: {
+                name: req.params.name,
+                description: description
+            }
+        });
+    });
+});
+
 module.exports = app;
 
