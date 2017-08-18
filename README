@@ -1,19 +1,18 @@
-STEPS TO CREATE A NODE.JS PROJECT
-=================================
+## Building-Blocks-of-Express
 
-1.  npm init
-2.  npm install express@4
-3.  git init
-4.  npm shrinkwrap
-5.  echo 'node_modules' >> .gitignore
+The old code for CodeSchool tutorial. I've learn the basics of Express.js here
 
-6.  mkdir bin && touch bin/www //express.js team convention
+<div align="center">
+  <img src="https://github.com/Cu7ious/Building-Blocks-of-Express/raw/master/public/images/BBofExpress.png" alt="Weather Watcher" />
+</div>
 
-7.  touch test.js
-8.  npm install supertest --save-dev
-9.  npm install mocha --save-dev
-10. vim package.json >> "tests": "mocha test.js"
-11. ./node_modules/mocha/bin/mocha -w app.js test.js // watch
-12. npm install body-parser --save && npm shrinkwrap
-13. npm install hiredis redis
-14.
+## Libraries
+
+* express: ^4.11.2,
+* body-parser: ^1.11.0,
+* hiredis: ^0.1.17,
+* redis: ^0.12.1
+* ejs: ^2.2.4,
+
+* mocha: ^2.1.0,
+* supertest: ^0.15.0
