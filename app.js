@@ -24,6 +24,8 @@ app.get('/cities', function(req, res) {
 
         if (err) throw err;
 
+        console.log(names);
+
         res.json(names);
     });
 });
@@ -69,4 +71,3 @@ app.get('/cities/:name', function(req, res) {
 });
 
 module.exports = app;
-
